@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "tnv-project-template"
+  "defaultProject": "tnv-project-template",
+  "cli": {
+    "analytics": false
+  }
 }
