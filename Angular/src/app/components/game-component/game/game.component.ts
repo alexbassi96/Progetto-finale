@@ -21,6 +21,9 @@ export class GameComponent implements OnInit {
     for(let index = 0; index < 10; index++){
       this.movieService.getRandomMovie(index);
     }
+  }
+
+  startGame(){
     this.criterion = this.movieService.getRandomCriterion();
     console.log(this.criterion);
 
