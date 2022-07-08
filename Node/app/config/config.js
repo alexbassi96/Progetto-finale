@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize";
 
 const db = new Sequelize({
-  database: "tnv-final-project",
+  database: "Progetto_finale",
   username: "root",
   password: "root",
   host: "localhost",
