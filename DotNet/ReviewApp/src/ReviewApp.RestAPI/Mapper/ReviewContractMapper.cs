@@ -10,6 +10,8 @@ namespace ReviewApp.RestAPI.Mapper
             return new()
             {
                 Id = review.Id,
+                userId = review.UserId,
+                movieId = review.MovieId,
                 Recensione = review.Recensione
             };
         }

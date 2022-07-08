@@ -11,7 +11,7 @@ namespace ReviewApp.Core.BL.Service
     {
         List<Review> GetAllReviews();
         Review GetReviewById(int id);
-        Review AddReview(string recensione);
+        Review AddReview(int userId, int movieId, string recensione);
         Review UpdateReview(int id, string recensione);
         bool DeleteReview(int id);
     }

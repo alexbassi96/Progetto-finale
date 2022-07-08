@@ -18,13 +18,13 @@ namespace ReviewApp.Core.BL
         }
 
         public List<Review> GetAllReviews() => _storageservice.GetAllReviews();
-        public Review AddReview(string recensione)
+        public Review AddReview(int userId, int movieId, string recensione)
         {
             if (recensione.Length > Review.MAX_CHAR_REVIEW)
             {
                 throw new ReviewTroppoLungaException($"La recensione deve essere al massimo di {Review.MAX_CHAR_REVIEW} caratteri");
             }
-            return _storageservice.AddReview(recensione);
+            return _storageservice.AddReview(userId, movieId, recensione);
         }
         public Review UpdateReview(int id, string recensione) => _storageservice.UpdateReview(id, recensione);
         public bool DeleteReview(int id)
