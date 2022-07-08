@@ -43,6 +43,8 @@ namespace ReviewApp.EF.BL.Service.Impl
             ReviewEntity reviewToAdd = new ReviewEntity()
             {
                 Id = GetNextReviewId(),
+                userId = userId,
+                movieId = movieId,
                 recensione = recensione
             };
 

@@ -12,7 +12,7 @@ namespace ReviewApp.RestAPI.Mapper
                 Id = review.Id,
                 userId = review.UserId,
                 movieId = review.MovieId,
-                Recensione = review.Recensione
+                recensione = review.Recensione
             };
         }
     }

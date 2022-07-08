@@ -6198,37 +6198,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alexb\\.nuget\\packages\\": {}
+    "/Users/francesca/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexb\\desktop\\Progetto\\ReviewApp\\src\\ReviewApp.RestAPI\\ReviewApp.RestAPI.csproj",
+      "projectUniqueName": "/Users/francesca/Desktop/Progetto/Progetto-finale/DotNet/ReviewApp/src/ReviewApp.RestAPI/ReviewApp.RestAPI.csproj",
       "projectName": "ReviewApp.RestAPI",
-      "projectPath": "C:\\Users\\alexb\\desktop\\Progetto\\ReviewApp\\src\\ReviewApp.RestAPI\\ReviewApp.RestAPI.csproj",
-      "packagesPath": "C:\\Users\\alexb\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexb\\desktop\\Progetto\\ReviewApp\\src\\ReviewApp.RestAPI\\obj\\",
+      "projectPath": "/Users/francesca/Desktop/Progetto/Progetto-finale/DotNet/ReviewApp/src/ReviewApp.RestAPI/ReviewApp.RestAPI.csproj",
+      "packagesPath": "/Users/francesca/.nuget/packages/",
+      "outputPath": "/Users/francesca/Desktop/Progetto/Progetto-finale/DotNet/ReviewApp/src/ReviewApp.RestAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\alexb\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/francesca/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\alexb\\desktop\\Progetto\\ReviewApp\\src\\ReviewApp.Core\\ReviewApp.Core.csproj": {
-              "projectPath": "C:\\Users\\alexb\\desktop\\Progetto\\ReviewApp\\src\\ReviewApp.Core\\ReviewApp.Core.csproj"
+            "/Users/francesca/Desktop/Progetto/Progetto-finale/DotNet/ReviewApp/src/ReviewApp.Core/ReviewApp.Core.csproj": {
+              "projectPath": "/Users/francesca/Desktop/Progetto/Progetto-finale/DotNet/ReviewApp/src/ReviewApp.Core/ReviewApp.Core.csproj"
             },
-            "C:\\Users\\alexb\\desktop\\Progetto\\ReviewApp\\src\\ReviewApp.EF\\ReviewApp.EF.csproj": {
-              "projectPath": "C:\\Users\\alexb\\desktop\\Progetto\\ReviewApp\\src\\ReviewApp.EF\\ReviewApp.EF.csproj"
+            "/Users/francesca/Desktop/Progetto/Progetto-finale/DotNet/ReviewApp/src/ReviewApp.EF/ReviewApp.EF.csproj": {
+              "projectPath": "/Users/francesca/Desktop/Progetto/Progetto-finale/DotNet/ReviewApp/src/ReviewApp.EF/ReviewApp.EF.csproj"
             }
           }
         }
@@ -6270,7 +6268,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
       }
     }
   },

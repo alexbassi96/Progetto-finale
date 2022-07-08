@@ -33,7 +33,7 @@ public class ReviewController : ControllerBase
     {
         try
         {
-            var reviewToAdd = _applicationManager.AddReview(info.userId, info.movieId, info.Recensione);
+            var reviewToAdd = _applicationManager.AddReview(info.userId, info.movieId, info.recensione);
             return Ok(ReviewContractMapper.From(reviewToAdd));
         }
         catch (ReviewTroppoLungaException ex)
@@ -93,7 +93,7 @@ public class ReviewController : ControllerBase
     {
         try
         {
-            var updatedReview = _applicationManager.UpdateReview(reviewId, info.Recensione);
+            var updatedReview = _applicationManager.UpdateReview(reviewId, info.recensione);
             return Ok(ReviewContractMapper.From(updatedReview));
         }
         catch (Exception ex)

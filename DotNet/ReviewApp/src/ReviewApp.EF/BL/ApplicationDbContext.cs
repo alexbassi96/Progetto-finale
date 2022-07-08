@@ -14,7 +14,7 @@ namespace ReviewApp.EF.BL
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var connectionString = "Server=localhost;Port=3306;Database=progetto_finale.review;Uid=root;Pwd=;";
+            var connectionString = "Server=localhost;Port=8889;Database=Progetto_finale.review;Uid=root;Pwd=root;";
             var mySqlServerVersion = new MySqlServerVersion(new Version(10, 4, 24));
 
             optionsBuilder.UseMySql(connectionString, mySqlServerVersion);
