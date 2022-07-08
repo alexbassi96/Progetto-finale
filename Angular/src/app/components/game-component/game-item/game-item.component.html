@@ -1,0 +1,25 @@
+<div class="card shadow" style="width: 13rem;">
+    <img
+      [src]="imageBaseUrl + movie.poster_path"
+      class="card-img-top"
+    />
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ movie.title | titlecase }}
+      </h5>
+      <p class="card-text"></p>
+    </div>
+    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+      <option selected>Scegli l'ordine</option>
+      <option value="1">Uno</option>
+      <option value="2">Due</option>
+      <option value="3">Tre</option>
+      <option value="4">Quattro</option>
+      <option value="5">Cinque</option>
+      <option value="6">Sei</option>
+      <option value="7">Sette</option>
+      <option value="8">Otto</option>
+      <option value="9">Nove</option>
+      <option value="10">Dieci</option>
+    </select>
+  </div>  

@@ -1,6 +1,30 @@
 
+$primary: #032CA6;
+$secondary: #ffffff;
+$third: #F28705;
+$text: #0D0D0D;
+
+.login-component {
+  background-color: $third;
+}
+
+.h3 {
+  color: $text;
+}
+
+.form-group {
+  color: $text;
+  font-size: small;
+  font-style: italic;
+}
+
 .login-card {
   width: 800px;
+  color: $primary;
+  background-color: $secondary;
+  border-radius: 10px;
+  border: 1px white;
+  border-style: solid;
 }
 
 .img {
@@ -8,6 +32,8 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .wrap {

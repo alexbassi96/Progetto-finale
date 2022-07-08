@@ -1,0 +1,7 @@
+<div class="mb-3">
+    <form #addrating="ngForm" (ngSubmit)="onSubmit(addrating)">
+        <label for="rating" class="form-label">Voto</label><br>
+        <ngb-rating [(rate)]="currentRate" id="rating" [max]="5"></ngb-rating>
+        <button type="submit" *ngIf="onSubmit" class="form-label btn btn-primary rounded submit px-3 mt-2">Vota</button>
+    </form>
+</div>

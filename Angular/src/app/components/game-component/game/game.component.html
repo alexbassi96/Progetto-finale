@@ -1,0 +1,13 @@
+<div class="row">
+    <h1>Ordina i film in base {{this.criterion.label}}</h1>
+    <br>
+    <tnv-game-item 
+        *ngFor="let movie of movies"
+        [movie]="movie"
+        class="col-12 col-sm-6 col-md-3 py-2"
+    ></tnv-game-item>
+</div>
+<div class="finish-button d-grid gap-2 col-4 mx-auto">
+    <button type="button" class="btn btn-primary btn-lg" 
+    routerLink="/endgame" routerLinkActive="active">Finito</button>
+</div>

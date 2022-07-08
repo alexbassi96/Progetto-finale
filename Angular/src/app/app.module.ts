@@ -13,7 +13,16 @@ import { NavbarComponent } from './@shared/components/navbar/navbar.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RankingsComponent } from './components/rankings/rankings.component';
-import { GameComponent } from './components/game/game.component';
+import { GameComponent } from './components/game-component/game/game.component';
+import { HttpClientModule } from '@angular/common/http';
+import { GameItemComponent } from './components/game-component/game-item/game-item.component';
+import { ReviewComponent } from './components/review/review.component';
+import { WelcomeHeaderComponent } from './components/welcome-header/welcome-header.component';
+import { FavoriteMovieComponent } from './components/favorite-movie/favorite-movie.component';
+import { FavoriteMovieItemComponent } from './components/favorite-movie-item/favorite-movie-item.component';
+import { EndGameItemComponent } from './components/game-component/end-game-item/end-game-item.component';
+import { RatingComponent } from './components/rating/rating.component';
+import { EndGameComponent } from './components/game-component/end-game/end-game.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +35,21 @@ import { GameComponent } from './components/game/game.component';
     WelcomeComponent,
     ProfileComponent,
     RankingsComponent,
-    GameComponent
+    GameComponent,
+    GameItemComponent,
+    ReviewComponent,
+    WelcomeHeaderComponent,
+    FavoriteMovieComponent,
+    FavoriteMovieItemComponent,
+    EndGameItemComponent,
+    RatingComponent,
+    EndGameComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     NgbModule
   ],
   providers: [],

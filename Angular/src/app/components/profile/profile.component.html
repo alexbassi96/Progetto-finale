@@ -1,14 +1,58 @@
-<h2>Profilo Utente</h2>
-<div class="row">
-  <div>
-    <span>Nome</span>: <span class="profile-data">{{ currentUser.name }}</span
-    ><br />
-    <span>Cognome</span>:
-    <span class="profile-data">{{ currentUser.surname }}</span
-    ><br />
-    <span>Username</span>:
-    <span class="profile-data">{{ currentUser.username }}</span
-    ><br />
+<!--<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  <h2>Profilo Utente</h2></button>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Profilo</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <tnv-logout class="mt-3"></tnv-logout>
+  <div class="offcanvas-body">
+    <div>
+      <div>
+    <span>Nome</span>: <span class="profile-data">{{ currentUser.name }}</span>
+    <br>
+    <span>Cognome</span>:
+    <span class="profile-data">{{ currentUser.surname }}</span>
+    <br>
+    <span>Username</span>:
+    <span class="profile-data">{{ currentUser.username }}</span>
+    <br>
+  </div>
+    </div>
+    <div class="dropdown mt-3">
+      <tnv-logout class="mt-3"></tnv-logout>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
+
+  <script>const offcanvasElementList = document.querySelectorAll('.offcanvas')
+    const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new bootstrap.Offcanvas(offcanvasEl))</script>-->
+    <div class="row">
+      <div>
+        <span>Nome</span>: <span class="profile-data">{{ currentUser.name }}</span>
+        <br>
+        <span>Cognome</span>:
+        <span class="profile-data">{{ currentUser.surname }}</span>
+        <br>
+        <span>Username</span>:
+        <span class="profile-data">{{ currentUser.username }}</span>
+        <br>
+      </div>
+      <tnv-logout class="mt-3"></tnv-logout>
+      <div class="col-12 col-md-6 col-sm-4"style="width: 100rem;">
+        <div class="favorite-list">
+          <br>
+          <h2>Lista dei preferiti</h2>
+          <div class="favorite-list-body">
+            <tnv-favorite-movie>
+            </tnv-favorite-movie>
+          </div>
+        </div>
+      </div>
+    </div>
+    
