@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+/* header {
+    width: 100%;
+    height: 500px;
+     background-image: url('https://italywebradio.it/core/wp-content/uploads/2021/04/1598683220_Why-you-should-watch-Tenet-in-the-cinema-even-if.jpg');
+     background-size: cover; 
+    font-family: 'Bebas Neue', cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 3px 5px lightgray;
+} */
+/* .d-block{
+    opacity: 80%;
+} */
+
+.carousel img{
+   width: 100%;
+   height: auto;
+   
+}
+ 
+.carousel-caption h1 {
+    color: rgb(255, 255, 255);
+    font-size: 128px;
+    margin: 0;
+    font-family: 'Staatliches', cursive;
+    text-shadow: 2px 2px 4px black;
+}
+
+.carousel-caption p {
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 2.3rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px black;
+}
+
+.carousel::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #534f4f;
+    opacity: 0.3;
+}
+/* .container {
+    width: 200px;
+    height: 120px;
+}
+ Resize images 
+.container img {
+    width: 100%;
+    height: auto;
+} */
