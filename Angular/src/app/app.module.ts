@@ -23,6 +23,7 @@ import { FavoriteMovieItemComponent } from './components/favorite-movie-item/fav
 import { EndGameItemComponent } from './components/game-component/end-game-item/end-game-item.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { EndGameComponent } from './components/game-component/end-game/end-game.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { EndGameComponent } from './components/game-component/end-game/end-game.
     EndGameItemComponent,
     RatingComponent,
     EndGameComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
