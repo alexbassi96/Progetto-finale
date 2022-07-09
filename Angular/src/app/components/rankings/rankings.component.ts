@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'tnv-rankings',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RankingsComponent implements OnInit {
 
+  users: Partial<User> [] = [];
   constructor() { }
 
   ngOnInit(): void {

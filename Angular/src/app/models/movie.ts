@@ -24,7 +24,7 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
-  criterion: number;
+  criterion: number | undefined;
 }
   
   export interface Genre {

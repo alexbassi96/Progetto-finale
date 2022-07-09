@@ -21,9 +21,9 @@ export class ProfileComponent implements OnInit {
   }
   open(content: any) {
     this.offcanvasService.open(content, {ariaLabelledBy: 'offcanvas-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
+      this.closeResult = ``;
     }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      this.closeResult = ``;
     });
   }
 
