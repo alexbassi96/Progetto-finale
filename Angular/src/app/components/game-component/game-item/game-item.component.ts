@@ -20,11 +20,15 @@ export class GameItemComponent implements OnInit {
     
   }
 
-  addMovieToOrderList(){
-    let selectDaVerificare = document.getElementById("posizioneFilm");
-    //let indiceSelezionato = selectDaVerificare.selectedIndex;
-    //let valoreSelezionato = selectDaVerificare.options[indiceSelezionato];
-    this.orderListMovie.push();
-  }
+  /*addMovieToOrderList(){
+    let select = document.getElementById('posizioneFilm');
+    let value = 
+    for(var i = 0, j = sel.options.length; i < j; ++i) {
+        if(sel.options[i].innerHTML === val) {
+           sel.selectedIndex = i;
+           break;
+        }
+    }
+  }*/
 }
 
