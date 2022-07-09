@@ -54,8 +54,8 @@ export class GameComponent implements OnInit {
   }
 
   descendingOrder(movies: Partial<Movie>[] | undefined) {    
-    this.movie.criterion = this.movieService.getRandomCriterion();
-    console.log(this.movie.criterion.key);
+    this.criterion = this.movieService.getRandomCriterion();
+    console.log(this.movie.criterion);
 
     /*switch(this.criterion.key){
       case 'release_date':
