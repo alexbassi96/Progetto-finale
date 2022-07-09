@@ -5,10 +5,12 @@
     <br>
     <h1>Ordina i film in base {{this.criterion.label}}</h1>
     <br>
-    <tnv-game-item
-        *ngFor="let movie of movies"
-        [movie]="movie"
-        class="col-10 col-sm-6 col-md-3 py-2"
-    >
+<tnv-game-item
+    *ngFor="let movie of movies"
+    [movie]="movie"
+    class="col-3 col-sm-6 col-md-3 py-2">
     </tnv-game-item>
+    <br>
+    <tnv-game-select>
+    </tnv-game-select>
 </div>

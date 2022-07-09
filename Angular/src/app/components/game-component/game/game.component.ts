@@ -11,8 +11,8 @@ export class GameComponent implements OnInit {
 
   constructor(private movieService: MovieService) { }
   
-  @Input() movie: Movie = {} as Movie;
   movies = this.movieService.movies;
+  movie: Partial<Movie> = {};
   criterion : Criterion = {label: "", key: ''};
   convertedCriterion: number = 0;
   orderedMovies: Movie [] = [];
@@ -21,7 +21,7 @@ export class GameComponent implements OnInit {
     for(let index = 0; index < 10; index++){
       this.movieService.getRandomMovie(index);
     }
-  }
+    }
 
   startGame(){
     /*switch(this.criterion.key){
@@ -48,37 +48,37 @@ export class GameComponent implements OnInit {
     }*/
 
     this.descendingOrder(this.movieService.movies);
-    /*for(let i = 0; i < 10; i++){
+    for(let i = 0; i < 10; i++){
       console.log(this.movieService.movies[i]);
-    }*/
+    }
   }
 
-  descendingOrder(movies: Partial<Movie>[] | undefined) {
-    this.criterion = this.movieService.getRandomCriterion();
-    console.log(this.criterion);
+  descendingOrder(movies: Partial<Movie>[] | undefined) {    
+    this.movie.criterion = this.movieService.getRandomCriterion();
+    console.log(this.movie.criterion.key);
 
-    switch(this.criterion.key){
+    /*switch(this.criterion.key){
       case 'release_date':
-        this.movie.criterion = parseInt(this.movie.release_date.substring(0, 4));
-        console.log(this.movie.criterion);
+        this.criterion.key = this.movie.release_date;
+        console.log(this.criterion.key);
         break;
       case 'vote_average':
-        this.movie.criterion = this.movie.vote_average;
-        console.log(this.movie.criterion);
+        this.criterion.key = this.movie.vote_average.toLocaleString();
+        console.log(this.criterion.key);
         break;
       case 'runtime':
-        this.movie.criterion = this.movie.runtime;
-        console.log(this.movie.criterion);
+        this.criterion.key = this.movie.runtime.toString();
+        console.log(this.criterion.key);
         break;
       case 'budget':
-        this.movie.criterion = this.movie.budget;
-        console.log(this.movie.criterion);
+        this.criterion.key = this.movie.budget.toString();
+        console.log(this.criterion.key);
         break;
       case 'revenue':
-      this.movie.criterion = this.movie.revenue;
-      console.log(this.movie.criterion);
-      break;
-    }
+        this.criterion.key = this.movie.revenue;
+        console.log(this.criterion.key);
+        break;
+    }*/
 
     movies?.sort((a, b) => {
       if (a.release_date != undefined && b.release_date != undefined) {
