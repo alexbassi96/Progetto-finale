@@ -5,7 +5,7 @@ export const getRanking = async (req, res) => {
         const ranking = await Ranking.findOne({
             where: {
                 userId: req.params.userId,
-                movieId: req.params.movieId,
+                gamePoints: req.params.gamePoints,
             }
         });
         

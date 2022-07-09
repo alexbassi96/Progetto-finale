@@ -29,24 +29,24 @@ export class GameComponent implements OnInit {
 
     switch(this.criterion.key){
       case 'release_date':
-        this.convertedCriterion = parseInt(this.movie.release_date.substring(0, 4));
-        console.log(this.convertedCriterion);
+        this.movie.criterion = parseInt(this.movie.release_date.substring(0, 4));
+        console.log(this.movie.criterion);
         break;
       case 'vote_average':
-        this.convertedCriterion = this.movie.vote_average;
-        console.log(this.convertedCriterion);
+        this.movie.criterion = this.movie.vote_average;
+        console.log(this.movie.criterion);
         break;
       case 'runtime':
-        this.convertedCriterion = this.movie.runtime;
-        console.log(this.convertedCriterion);
+        this.movie.criterion = this.movie.runtime;
+        console.log(this.movie.criterion);
         break;
       case 'budget':
-        this.convertedCriterion = this.movie.budget;
-        console.log(this.convertedCriterion);
+        this.movie.criterion = this.movie.budget;
+        console.log(this.movie.criterion);
         break;
       case 'revenue':
-      this.convertedCriterion = this.movie.revenue;
-      console.log(this.convertedCriterion);
+      this.movie.criterion = this.movie.revenue;
+      console.log(this.movie.criterion);
       break;
     }
 

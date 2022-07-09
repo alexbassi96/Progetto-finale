@@ -1,6 +1,6 @@
 <div class="row">
-    <div (ngSubmit)="startGame()">
-        <button type="submit" *ngIf="startGame" class="form-label btn btn-primary rounded submit px-3 mt-2" (click)="startGame()">Inizia il gioco</button>
+    <div (ngSubmit)="startGame()" class="startGame-button d-grid gap-2 col-4 mx-auto">
+        <button type="submit" *ngIf="startGame" class="btn btn-primary btn-lg" (click)="startGame()">Inizia il gioco</button>
     </div>
     <h1>Ordina i film in base {{this.criterion.label}}</h1>
     <br>
