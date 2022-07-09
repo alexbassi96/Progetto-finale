@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Movie } from 'src/app/models/movie';
 
 @Component({
@@ -9,6 +10,7 @@ import { Movie } from 'src/app/models/movie';
 export class GameItemComponent implements OnInit {
 
   @Input() movie: Partial<Movie> = {};
+  orderListMovie: Partial<Movie> [] = [];
   
   imageBaseUrl: string = "https://image.tmdb.org/t/p/w440_and_h660_face"
   
@@ -18,5 +20,11 @@ export class GameItemComponent implements OnInit {
     
   }
 
+  addMovieToOrderList(){
+    let selectDaVerificare = document.getElementById("posizioneFilm");
+    //let indiceSelezionato = selectDaVerificare.selectedIndex;
+    //let valoreSelezionato = selectDaVerificare.options[indiceSelezionato];
+    this.orderListMovie.push();
+  }
 }
 

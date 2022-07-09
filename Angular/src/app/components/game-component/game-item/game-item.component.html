@@ -1,15 +1,13 @@
 <div class="card-shadow" style="width: 13rem;">
-    <img
-      [src]="imageBaseUrl + movie.poster_path"
-      class="card-img-top"
-    />
-    <div class="card-body">
-      <h5 class="card-title">
-        {{ movie.title | titlecase }}
-      </h5>
-      <p class="card-text"></p>
-    </div>
-    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+  <img [src]="imageBaseUrl + movie.poster_path" class="card-img-top" />
+  <div class="card-body">
+    <h5 class="card-title">
+      {{ movie.title | titlecase }}
+    </h5>
+    <p class="card-text"></p>
+  </div>
+  <form>
+    <select id="posizioneFilm" class="form-select form-select-sm" aria-label=".form-select-sm example">
       <option selected>Scegli l'ordine</option>
       <option value="1">Primo</option>
       <option value="2">Secondo</option>
@@ -22,4 +20,5 @@
       <option value="9">Nono</option>
       <option value="10">Decimo</option>
     </select>
-  </div>  
+  </form>
+</div>
