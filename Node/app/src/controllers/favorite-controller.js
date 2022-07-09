@@ -53,22 +53,6 @@ export const getFavoriteByUserId = async (req, res) => {
     }
 }
 
-/*export const updateRating = async (req, res) => {
-    try {
-        const rating = await Rating.update(req.body, {
-            where: {
-                id: req.params.id
-            }
-        });
-        res.json({
-            "message": "Rating Updated",
-            data: rating
-        });
-    } catch (err) {
-        console.log(err);
-        res.sendStatus(500);
-    }
-}*/
 
 export const deleteFavorite = async (req, res) => {
     try {

@@ -1,3 +1,6 @@
+<h3>Bentornato! {{currentUser.username}}</h3>
+
+
 <ng-template #content let-offcanvas>
   <div class="offcanvas-header">
     <button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
@@ -6,11 +9,11 @@
     <div class="row">
       <div class="card border-primary mb-3" style="max-width: 18rem;">
         <div class="card-header">Utente</div>
-         <span>Nome</span> <span class="profile-data">{{ currentUser.name }}</span>
-         <span>Cognome</span>
-         <span class="profile-data">{{ currentUser.surname }}</span>
-         <span>Username</span>
-         <span class="profile-data">{{ currentUser.username }}</span>
+        <span>Nome</span> <span class="profile-data">{{ currentUser.name }}</span>
+        <span>Cognome</span>
+        <span class="profile-data">{{ currentUser.surname }}</span>
+        <span>Username</span>
+        <span class="profile-data">{{ currentUser.username }}</span>
       </div>
     </div>
     <tnv-logout class="logout-button mt-3"></tnv-logout>
@@ -27,7 +30,7 @@
 
 <div class="favorite-list-body">
   <h2>Lista dei preferiti</h2>
+  <hr>
   <tnv-favorite-movie>
   </tnv-favorite-movie>
 </div>
-    
