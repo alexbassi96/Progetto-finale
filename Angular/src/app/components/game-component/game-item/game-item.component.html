@@ -1,9 +1,11 @@
-<div class="card-shadow" style="width: 13rem;">
-  <img [src]="imageBaseUrl + movie.poster_path" class="card-img-top" />
-  <div class="card-body">
-    <h5 class="card-title">
-      {{ movie.title | titlecase }}
-    </h5>
-    <p class="card-text"></p>
+<div class="movie-card">
+  <div class="card-shadow" style="width: 13rem;">
+    <img [src]="imageBaseUrl + movie.poster_path" class="card-img-top" />
+    <div class="card-body">
+      <h5 class="card-title">
+        {{ movie.title | titlecase }}
+      </h5>
+      <p class="card-text"></p>
+    </div>
   </div>
 </div>
