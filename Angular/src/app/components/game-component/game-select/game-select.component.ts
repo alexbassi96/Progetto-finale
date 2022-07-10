@@ -12,8 +12,7 @@ export class GameSelectComponent implements OnInit {
 
   movies = this.movieService.movies;
   orderedMoviesByUser : Partial<Movie>[] = [];
-  currentMovie: Partial<Movie> = {};
-  /*primaPosizioneFilm: Partial<Movie> = {};
+  primaPosizioneFilm: Partial<Movie> = {};
   secondaPosizioneFilm: Partial<Movie> = {};
   terzaPosizioneFilm: Partial<Movie> = {};
   quartaPosizioneFilm: Partial<Movie> = {};
@@ -22,7 +21,7 @@ export class GameSelectComponent implements OnInit {
   settimaPosizioneFilm: Partial<Movie> = {};
   ottavaPosizioneFilm: Partial<Movie> = {};
   nonaPosizioneFilm: Partial<Movie> = {};
-  decimaPosizioneFilm: Partial<Movie> = {};*/
+  decimaPosizioneFilm: Partial<Movie> = {};
 
   
   constructor(private movieService: MovieService) { }
@@ -31,29 +30,17 @@ export class GameSelectComponent implements OnInit {
   }
 
   onSubmitMovie(form: NgForm){
-    console.log(form.value);
-    form.value['primaPosizioneFilm'] = this.orderedMoviesByUser[0];
-    this.orderedMoviesByUser.push(this.orderedMoviesByUser[0]);
-    /*form.value['secondaPosizioneFilm'] = this.orderedMovies[1];
-    form.value['terzaPosizioneFilm'] = this.orderedMovies[2];
-    form.value['quartaPosizioneFilm'] = this.orderedMovies[3];
-    form.value['quintaPosizioneFilm'] = this.orderedMovies[4]
-    form.value['sestaPosizioneFilm'] = this.orderedMovies[5];
-    form.value['settimaPosizioneFilm'] = this.orderedMovies[6];
-    form.value['ottavaPosizioneFilm'] = this.orderedMovies[7];
-    form.value['nonaPosizioneFilm'] = this.orderedMovies[8];
-    form.value['decimaPosizioneFilm'] = this.orderedMovies[9];
+    this.orderedMoviesByUser.push(this.primaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.secondaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.terzaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.quartaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.quintaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.sestaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.settimaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.ottavaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.nonaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.decimaPosizioneFilm);
 
-    this.orderedMovies.push(this.orderedMovies[0]);
-    this.orderedMovies.push(this.orderedMovies[1]);
-    this.orderedMovies.push(this.orderedMovies[2]);
-    this.orderedMovies.push(this.orderedMovies[3]);
-    this.orderedMovies.push(this.orderedMovies[4]);
-    this.orderedMovies.push(this.orderedMovies[5]);
-    this.orderedMovies.push(this.orderedMovies[6]);
-    this.orderedMovies.push(this.orderedMovies[7]);
-    this.orderedMovies.push(this.orderedMovies[8]);
-    this.orderedMovies.push(this.orderedMovies[9]);*/
-    console.log(this.orderedMoviesByUser[0]);
+    console.log(this.orderedMoviesByUser);
   }
 }

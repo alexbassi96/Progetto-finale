@@ -14,6 +14,6 @@
         <tnv-game-select>
         </tnv-game-select>
         <form #end="ngForm" (ngSubmit)="finish(end)">
-            <button type="submit" *ngIf="finish" class="form-label btn btn-primary rounded submit px-3 mt-2">Aggiungi ai preferiti</button>
+            <button type="button" *ngIf="finish" class="form-label btn btn-primary rounded submit px-3 mt-2" routerLink="/endgame" routerLinkActive="active" (click)="finish(end)">Aggiungi ai preferiti</button>
           </form>
-</div>
+        </div>
