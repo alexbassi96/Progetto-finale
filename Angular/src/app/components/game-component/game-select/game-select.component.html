@@ -1,20 +1,21 @@
-<form>
+<div>
+<form #addOrderedFilm="ngForm" (ngSubmit)="onSubmitMovie(addOrderedFilm)">
     <p> Prima posizione </p>
-    <select id="primaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
+    <select [ngModel] name="primaPosizioneFilm" id="primaPosizioneFilm" [ngModel]="currentMovie" class="form-select-lg mb-3" aria-label=".form-select-lg example">
         <option selected>Scegli l'ordine</option>
-        <option value="1">{{ movies[0].title }}</option>
-        <option value="2">{{ movies[1].title }}</option>
-        <option value="3">{{ movies[2].title }}</option>
-        <option value="4">{{ movies[3].title }}</option>
-        <option value="5">{{ movies[4].title }}</option>
-        <option value="6">{{ movies[5].title }}</option>
-        <option value="7">{{ movies[6].title }}</option>
-        <option value="8">{{ movies[7].title }}</option>
-        <option value="9">{{ movies[8].title }}</option>
-        <option value="10">{{ movies[9].title }}</option>
+        <option value="{{movies[0]}}">{{ movies[0].title }}</option>
+        <option value="{{movies[1]}}">{{ movies[1].title }}</option>
+        <option value="{{movies[2]}}">{{ movies[2].title }}</option>
+        <option value="{{movies[3]}}">{{ movies[3].title }}</option>
+        <option value="{{movies[4]}}">{{ movies[4].title }}</option>
+        <option value="{{movies[5]}}">{{ movies[5].title }}</option>
+        <option value="{{movies[6]}}">{{ movies[6].title }}</option>
+        <option value="{{movies[7]}}">{{ movies[7].title }}</option>
+        <option value="{{movies[8]}}">{{ movies[8].title }}</option>
+        <option value="{{movies[9]}}">{{ movies[9].title }}</option>
     </select>
-    <p> Seconda posizione </p>
-    <select id="secondaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
+<!--    <p> Seconda posizione </p>
+    <select [ngModel] name="secondaPosizioneFilm" id="secondaPosizioneFilm" [ngModel]="secondaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
         <option selected>Scegli l'ordine</option>
         <option value="1">{{ movies[0].title }}</option>
         <option value="2">{{ movies[1].title }}</option>
@@ -28,7 +29,7 @@
         <option value="10">{{ movies[9].title }}</option>
     </select>
     <p> Terza posizione </p>
-    <select id="terzaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
+    <select [ngModel] name="terzaPosizioneFilm" id="terzaPosizioneFilm" [ngModel]="terzaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
         <option selected>Scegli l'ordine</option>
         <option value="1">{{ movies[0].title }}</option>
         <option value="2">{{ movies[1].title }}</option>
@@ -42,7 +43,7 @@
         <option value="10">{{ movies[9].title }}</option>
     </select>
     <p> Quarta posizione </p>
-    <select id="quartaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
+    <select [ngModel] name="quartaPosizioneFilm" id="quartaPosizioneFilm" [ngModel]="quartaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
         <option selected>Scegli l'ordine</option>
         <option value="1">{{ movies[0].title }}</option>
         <option value="2">{{ movies[1].title }}</option>
@@ -56,7 +57,7 @@
         <option value="10">{{ movies[9].title }}</option>
     </select>
     <p> Quinta posizione </p>
-    <select id="quintaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
+    <select [ngModel] name="quintaPosizioneFilm" id="quintaPosizioneFilm" [ngModel]="quintaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
         <option selected>Scegli l'ordine</option>
         <option value="1">{{ movies[0].title }}</option>
         <option value="2">{{ movies[1].title }}</option>
@@ -70,7 +71,7 @@
         <option value="10">{{ movies[9].title }}</option>
     </select>
     <p> Sesta posizione </p>
-    <select id="sestaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
+    <select [ngModel] name="sestaPosizioneFilm" id="sestaPosizioneFilm" [ngModel]="sestaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
         <option selected>Scegli l'ordine</option>
         <option value="1">{{ movies[0].title }}</option>
         <option value="2">{{ movies[1].title }}</option>
@@ -84,7 +85,7 @@
         <option value="10">{{ movies[9].title }}</option>
     </select>
     <p> Settima posizione </p>
-    <select id="settimaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
+    <select [ngModel] name="settimaPosizioneFilm" id="settimaPosizioneFilm" [ngModel]="settimaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
         <option selected>Scegli l'ordine</option>
         <option value="1">{{ movies[0].title }}</option>
         <option value="2">{{ movies[1].title }}</option>
@@ -98,7 +99,7 @@
         <option value="10">{{ movies[9].title }}</option>
     </select>
     <p> Ottava posizione </p>
-    <select id="ottavaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
+    <select [ngModel] name="ottavaPosizioneFilm" id="ottavaPosizioneFilm" [ngModel]="ottavaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
         <option selected>Scegli l'ordine</option>
         <option value="1">{{ movies[0].title }}</option>
         <option value="2">{{ movies[1].title }}</option>
@@ -112,7 +113,7 @@
         <option value="10">{{ movies[9].title }}</option>
     </select>
     <p> Nova posizione </p>
-    <select id="nonaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
+    <select [ngModel] name="nonaPosizioneFilm" id="nonaPosizioneFilm" [ngModel]="nonaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
         <option selected>Scegli l'ordine</option>
         <option value="1">{{ movies[0].title }}</option>
         <option value="2">{{ movies[1].title }}</option>
@@ -126,7 +127,7 @@
         <option value="10">{{ movies[9].title }}</option>
     </select>
     <p> Decima posizione </p>
-    <select id="decimaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
+    <select [ngModel] name="decimaPosizioneFilm" id="decimaPosizioneFilm" [ngModel]="decimaPosizioneFilm" class="form-select-lg mb-3" aria-label=".form-select-lg example">
         <option selected>Scegli l'ordine</option>
         <option value="1">{{ movies[0].title }}</option>
         <option value="2">{{ movies[1].title }}</option>
@@ -138,6 +139,7 @@
         <option value="8">{{ movies[7].title }}</option>
         <option value="9">{{ movies[8].title }}</option>
         <option value="10">{{ movies[9].title }}</option>
-    </select>
-    <button type="submit" *ngIf="onSubmit" class="form-label btn btn-primary rounded submit px-3 mt-2">Film ordinati</button>
+    </select>-->
+    <button type="submit" *ngIf="onSubmitMovie" class="form-label btn btn-primary rounded submit px-3 mt-2" routerLink="/endgame" routerLinkActive="active">Film ordinati</button>
 </form>
+</div>

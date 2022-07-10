@@ -1,4 +1,4 @@
 export interface Ranking {
-    userId: number,
-    score: number
+    userId: number | undefined,
+    gamePoints: number | undefined
 }

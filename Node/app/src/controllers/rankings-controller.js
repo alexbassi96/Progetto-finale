@@ -1,12 +1,11 @@
 import Ranking from "../models/ranking.js"
 
-export const getRanking = async (req, res) => {
+export const getRankingByUserId = async (req, res) => {
     try {
         const ranking = await Ranking.findOne({
             where: {
                 userId: req.params.userId,
-                gamePoints: req.params.gamePoints,
-            }
+                }
         });
         
         if (ranking) {
@@ -34,35 +33,21 @@ export const createRanking = async (req, res) => {
     }
 }
 
-/*export const updateRanking = async (req, res) => {
+export const getRanking = async (req, res) => {
     try {
-        const ranking = await Ranking.update(req.body, {
-            where: {
-                id: req.params.id
-            }
-        });
-        res.json({
-            "message": "Ranking Updated",
-            data: ranking
-        });
+        const ranking = await Ranking.findAll({
+            userId: findAll,
+            gamePoints: findAll
+        }
+        );
+        
+        if (ranking) {
+            res.send(ranking);
+        } else {
+            res.sendStatus(404);
+        }
     } catch (err) {
         console.log(err);
         res.sendStatus(500);
     }
 }
-
-export const deleteRating = async (req, res) => {
-    try {
-        await Rating.destroy({
-            where: {
-                id: req.params.id
-            }
-        });
-        res.json({
-            "message": "Rating Deleted"
-        });
-    } catch (err) {
-        console.log(err);
-        res.sendStatus(500);
-    }
-}*/

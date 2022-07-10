@@ -10,8 +10,10 @@
             *ngFor="let movie of movies"
             [movie]="movie"
             class="col-12 col-sm-6 col-md-3 py-2"
-        >
-        </tnv-game-item>
+        ></tnv-game-item>
         <tnv-game-select>
         </tnv-game-select>
+        <form #end="ngForm" (ngSubmit)="finish(end)">
+            <button type="submit" *ngIf="finish" class="form-label btn btn-primary rounded submit px-3 mt-2">Aggiungi ai preferiti</button>
+          </form>
 </div>

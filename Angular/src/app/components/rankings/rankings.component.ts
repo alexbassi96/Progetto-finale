@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RankingService } from 'src/app/@core/services/ranking.service';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -9,9 +10,16 @@ import { User } from 'src/app/models/user';
 export class RankingsComponent implements OnInit {
 
   users: Partial<User> [] = [];
-  constructor() { }
+
+  constructor(private rankingService: RankingService) { }
 
   ngOnInit(): void {
+    this.rankingService.getRanking().subscribe({
+      next: (res) => {
+      console.log(res);
   }
+});
+  }
+
 
 }

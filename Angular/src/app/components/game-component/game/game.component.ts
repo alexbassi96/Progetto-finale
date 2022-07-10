@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/@core/services/auth.service';
 import { MovieService } from 'src/app/@core/services/movie.service';
+import { RankingService } from 'src/app/@core/services/ranking.service';
 import { Criterion, Movie } from 'src/app/models/movie';
+import { Ranking } from 'src/app/models/ranking';
 
 @Component({
   selector: 'tnv-game',
@@ -9,18 +13,23 @@ import { Criterion, Movie } from 'src/app/models/movie';
 })
 export class GameComponent implements OnInit {
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private rankingService: RankingService, private authService: AuthService) { }
   
   movies = this.movieService.movies;
   movie: Partial<Movie> = {};
+  orderedMovies: Partial<Movie>[] = [];
+  @Input() orderedMoviesByUser: Partial<Movie> [] = [];
   criterion : Criterion = {label: "", key: ''};
-  convertedCriterion: number = 0;
-  orderedMovies: Movie [] = [];
+  currentUser = this.authService.getCurrentUser().id;
+  //convertedCriterion: number = 0;
+  //orderedMovies: Movie [] = [];
 
   ngOnInit(): void {
     for(let index = 0; index < 10; index++){
       this.movieService.getRandomMovie(index);
     }
+    this.criterion = this.movieService.getRandomCriterion();
+    console.log(this.criterion);
     }
 
   startGame(){
@@ -47,15 +56,18 @@ export class GameComponent implements OnInit {
       break;
     }*/
 
-    this.descendingOrder(this.movieService.movies);
     for(let i = 0; i < 10; i++){
-      console.log(this.movieService.movies[i]);
+      this.orderedMovies.push(this.movieService.movies[i]);
     }
-  }
+    this.descendingOrder();
+    for(let i = 0; i < 10; i++){
+      console.log(this.orderedMovies[i]);
+    }
+}
 
-  descendingOrder(movies: Partial<Movie>[] | undefined) {    
-    this.criterion = this.movieService.getRandomCriterion();
-    console.log(this.movie.criterion);
+  descendingOrder() {    
+    /*this.criterion = this.movieService.getRandomCriterion();
+    console.log(this.criterion);*/
 
     /*switch(this.criterion.key){
       case 'release_date':
@@ -80,7 +92,7 @@ export class GameComponent implements OnInit {
         break;
     }*/
 
-    movies?.sort((a, b) => {
+    this.orderedMovies?.sort((a, b) => {
       if (a.release_date != undefined && b.release_date != undefined) {
         if (b.release_date > a.release_date) {
           return 1;
@@ -93,5 +105,18 @@ export class GameComponent implements OnInit {
       else return 0;
     });
   }
-}
 
+  finish(form: NgForm){
+    let points: number = 0;
+    for(let i = 0; i < 10; i++){
+      if(this.movies[i] === this.movies[i]){
+        points = points + 10;
+        }
+      }
+      this.rankingService.createRanking({userId: this.currentUser, gamePoints: points}).subscribe({
+        next: (res) => {
+        console.log(res);
+    }
+  });
+}
+}

@@ -1,9 +1,9 @@
-import { Sequelize } from "sequelize"; 
+import sequelize, { Sequelize } from "sequelize"; 
 import db from "../../config/config.js";
  
 const { DataTypes } = Sequelize;
 
-const Rating = db.define('ranking', {
+const Ranking = db.define('ranking', {
   userId: {
     type: DataTypes.INTEGER
   },
