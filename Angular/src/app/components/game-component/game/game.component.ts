@@ -22,7 +22,6 @@ export class GameComponent implements OnInit {
   criterion : Criterion = {label: "", key: ''};
   currentUser = this.authService.getCurrentUser().id;
   //convertedCriterion: number = 0;
-  //orderedMovies: Movie [] = [];
 
   ngOnInit(): void {
     for(let index = 0; index < 10; index++){
@@ -141,9 +140,11 @@ export class GameComponent implements OnInit {
   }
 
   finish(form: NgForm){
+    console.log(this.orderedMovies);
+    console.log(this.orderedMoviesByUser);
     let points: number = 0;
     for(let i = 0; i < 10; i++){
-      if(this.movies[i] === this.movies[i]){
+      if(this.orderedMovies[i] === this.orderedMoviesByUser[i]){
         points = points + 10;
         }
       }
