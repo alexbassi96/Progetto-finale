@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/@core/services/auth.service';
 import { MovieService } from 'src/app/@core/services/movie.service';
 import { RankingService } from 'src/app/@core/services/ranking.service';
 import { Criterion, Movie } from 'src/app/models/movie';
+import { Ranking } from 'src/app/models/ranking';
 
 @Component({
   selector: 'tnv-game',
@@ -17,9 +18,9 @@ export class GameComponent implements OnInit {
   movies = this.movieService.movies;
   movie: Partial<Movie> = {};
   orderedMovies: Partial<Movie>[] = [];
-  criterion : Criterion = {label: "", key: ''};
-  currentUser = this.authService.getCurrentUser().id;
   orderedMoviesByUser : Partial<Movie>[] = [];
+  criterion : Criterion = {label: "", key: ''};
+  currentUserId = this.authService.getCurrentUser().id;
   primaPosizioneFilm: Partial<Movie> = {};
   secondaPosizioneFilm: Partial<Movie> = {};
   terzaPosizioneFilm: Partial<Movie> = {};
@@ -33,14 +34,13 @@ export class GameComponent implements OnInit {
   game = false;
   results = false;
 
-  //convertedCriterion: number = 0;
 
   ngOnInit(): void {
     for(let index = 0; index < 10; index++){
       this.movieService.getRandomMovie(index);
     }
     this.criterion = this.movieService.getRandomCriterion();
-    console.log(this.criterion);
+    console.log(this.criterion.key);
     }
 
   showGame(){
@@ -53,6 +53,14 @@ export class GameComponent implements OnInit {
 
 
   startGame(){
+    for(let i = 0; i < 10; i++){
+      this.orderedMovies.push(this.movieService.movies[i]);
+    }
+
+    for(let i = 0; i < 10; i++){
+      console.log(this.orderedMovies[i]);
+    }
+    
     switch(this.criterion.key){
       case 'release_date':
         this.descendingOrderReleaseDate();
@@ -70,11 +78,7 @@ export class GameComponent implements OnInit {
         this.descendingOrderRevenue();
         break;
     }
-
-    for(let i = 0; i < 10; i++){
-      this.orderedMovies.push(this.movieService.movies[i]);
-    }
-
+    
     for(let i = 0; i < 10; i++){
       console.log(this.orderedMovies[i]);
     }
@@ -91,8 +95,6 @@ export class GameComponent implements OnInit {
     this.orderedMoviesByUser.push(this.ottavaPosizioneFilm);
     this.orderedMoviesByUser.push(this.nonaPosizioneFilm);
     this.orderedMoviesByUser.push(this.decimaPosizioneFilm);
-
-    console.log(this.orderedMoviesByUser);
   }
 
   finish(form: NgForm){
@@ -103,8 +105,8 @@ export class GameComponent implements OnInit {
       if(this.orderedMovies[i] == this.orderedMoviesByUser[i]){
         points = points + 10;
         }
-      }
-      this.rankingService.createRanking({userId: this.currentUser, gamePoints: points}).subscribe({
+    }
+      this.rankingService.createRanking({userId: this.currentUserId, gamePoints: points}).subscribe({
         next: (res) => {
         console.log(res);
       }
@@ -112,7 +114,7 @@ export class GameComponent implements OnInit {
   }
 
   descendingOrderReleaseDate() {    
-    this.movies?.sort((a, b) => {
+    this.orderedMovies?.sort((a, b) => {
       if (a.release_date != undefined && b.release_date != undefined) {
         if (b.release_date > a.release_date) {
           return 1;
@@ -127,7 +129,7 @@ export class GameComponent implements OnInit {
   }
 
   descendingOrderVoteAverage() {
-    this.movies?.sort((a, b) => {
+    this.orderedMovies?.sort((a, b) => {
       if (a.vote_average != undefined && b.vote_average != undefined) {
         if (b.vote_average > a.vote_average) {
           return 1;
@@ -142,7 +144,7 @@ export class GameComponent implements OnInit {
   }
 
   descendingOrderRuntime() {    
-    this.movies?.sort((a, b) => {
+    this.orderedMovies?.sort((a, b) => {
       if (a.runtime != undefined && b.runtime != undefined) {
         if (b.runtime > a.runtime) {
           return 1;
@@ -157,7 +159,7 @@ export class GameComponent implements OnInit {
   }
 
   descendingOrderBudget() {    
-    this.movies?.sort((a, b) => {
+    this.orderedMovies?.sort((a, b) => {
       if (a.budget != undefined && b.budget != undefined) {
         if (b.budget > a.budget) {
           return 1;
@@ -172,7 +174,7 @@ export class GameComponent implements OnInit {
   }
 
   descendingOrderRevenue() {
-    this.movies?.sort((a, b) => {
+    this.orderedMovies?.sort((a, b) => {
       if (a.revenue != undefined && b.revenue != undefined) {
         if (b.revenue > a.revenue) {
           return 1;
