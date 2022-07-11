@@ -9,6 +9,7 @@ proposti, l’utente potrà scegliere se salvarlo nella lista dei preferiti, e i
 inserire una breve recensione di massimo 160 caratteri. Dalla lista dovrà essere possibile eliminare i film. Ad
 ogni utilizzo dovrà essere aggiornata una classifica con i punteggi relativi ad ogni utente in base ai film
 indovinati. Tale classifica dovrà essere raggiungibile nell’applicazione stessa.
+
 N.b.:
 L’accesso al sistema dovrà avvenire attraverso un servizio di BE Springboot.
 L’inserimento della review dovrà essere effettuato con un servizio di BE in .Net.
