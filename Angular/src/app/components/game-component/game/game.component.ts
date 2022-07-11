@@ -4,7 +4,6 @@ import { AuthService } from 'src/app/@core/services/auth.service';
 import { MovieService } from 'src/app/@core/services/movie.service';
 import { RankingService } from 'src/app/@core/services/ranking.service';
 import { Criterion, Movie } from 'src/app/models/movie';
-import { Ranking } from 'src/app/models/ranking';
 
 @Component({
   selector: 'tnv-game',
