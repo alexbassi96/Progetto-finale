@@ -35,11 +35,7 @@ export const createRanking = async (req, res) => {
 
 export const getRanking = async (req, res) => {
     try {
-        const ranking = await Ranking.findAll({
-            userId: findAll,
-            gamePoints: findAll
-        }
-        );
+        const ranking = await Ranking.findAll();
         
         if (ranking) {
             res.send(ranking);
