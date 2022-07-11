@@ -4,6 +4,7 @@
         <select [(ngModel)]="primaPosizioneFilm" name="primaPosizioneFilm" id="primaPosizioneFilm"
             class="form-select-lg mb-3" aria-label=".form-select-lg example">
             <option selected>Scegli l'ordine</option>
+            <!-- <option *ngFor = "let movie of movies"[ngValue]="movie">{{ movie.title }}</option> -->
             <option [ngValue]="movies[0]">{{ movies[0].title }}</option>
             <option [ngValue]="movies[1]">{{ movies[1].title }}</option>
             <option [ngValue]="movies[2]">{{ movies[2].title }}</option>

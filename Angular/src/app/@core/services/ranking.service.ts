@@ -9,6 +9,7 @@ import { Ranking } from 'src/app/models/ranking';
 export class RankingService {
 
   nodeBaseUrl: String = "http://localhost:1234/api"
+  latestGamePoints: number = 0;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,15 +18,12 @@ export class RankingService {
   }
 
   createRanking(ranking: Partial<Ranking>){
+    this.latestGamePoints = ranking.gamePoints || 0 ;
     return this.httpClient.post<Ranking>(`${this.nodeBaseUrl}/ranking`, ranking); 
   }
 
-  updateRanking(userId: number | undefined, gamePoints: number | undefined){
-    return this.httpClient.patch<Ranking>(`${this.nodeBaseUrl}/ranking/${userId}`, gamePoints);
-  }
-
-  getRanking(){
-    return this.httpClient.get<Ranking[]>(`${this.nodeBaseUrl}/ranking`);
+  getRanking(userId: number){
+    return this.httpClient.get<Ranking[]>(`${this.nodeBaseUrl}/rankingall/${userId}`);
   }
 }
 

@@ -34,9 +34,8 @@ export const createRanking = async (req, res) => {
 }
 
 export const getRanking = async (req, res) => {
-    try {
+    try{
         const ranking = await Ranking.findAll();
-        
         if (ranking) {
             res.send(ranking);
         } else {
