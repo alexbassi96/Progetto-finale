@@ -11,7 +11,7 @@ import { Ranking } from 'src/app/models/ranking';
 })
 export class EndGameComponent implements OnInit {
 
-  constructor(private movieService: MovieService, private authService: AuthService, private rankingService: RankingService) { }
+  constructor(private movieService: MovieService, private authService: AuthService, public rankingService: RankingService) { }
 
   movies = this.movieService.movies;
   currentUser = this.authService.getCurrentUser();
