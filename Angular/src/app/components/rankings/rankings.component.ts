@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/@core/services/auth.service';
 import { RankingService } from 'src/app/@core/services/ranking.service';
 import { Ranking } from 'src/app/models/ranking';
 import { User } from 'src/app/models/user';
@@ -10,26 +11,26 @@ import { User } from 'src/app/models/user';
 })
 export class RankingsComponent implements OnInit {
 
-  users: Partial<User> [] = [];
-  rankings: Partial<Ranking> [] = [];
-  bestRanking: Partial<Ranking> [] = [];
+  users: Partial<User>[] = [];
+  rankings: Partial<Ranking>[] = [];
+  bestRanking: Partial<Ranking>[] = [];
+  currentUser = this.authService.getCurrentUser();
 
-  constructor(private rankingService: RankingService) { }
+  constructor(private rankingService: RankingService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.rankingService.getRanking().subscribe({
+    let userId = this.currentUser.id;
+    this.rankingService.getRanking(userId).subscribe({
       next: (res) => {
-      this.rankings = res;
-      console.log(res);
-  }
-});
+        this.rankings = res;
+        console.log(res);
+        this.descendingOrderRankings();
+      }
+    });
   }
 
   descendingOrderRankings() {
-    //this.rankingService.getRanking();    
-    /*this.criterion = this.movieService.getRandomCriterion();
-    console.log(this.criterion);*/
-      this.rankings?.sort((a, b) => {
+    this.rankings?.sort((a, b) => {
       if (a.gamePoints != undefined && b.gamePoints != undefined) {
         if (b.gamePoints > a.gamePoints) {
           return 1;
@@ -42,9 +43,10 @@ export class RankingsComponent implements OnInit {
       else return 0;
     });
 
-    for(let i = 0; i < 10; ++i){
-      this.rankings.push(this.bestRanking[i]);
+    for (let i = 0; i < 10; ++i) {
+      this.bestRanking.push(this.rankings[i]);
     }
+    console.log(this.bestRanking);
   }
 
 
