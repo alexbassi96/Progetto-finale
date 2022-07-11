@@ -31,66 +31,35 @@ export class GameComponent implements OnInit {
     }
 
   startGame(){
-    /*switch(this.criterion.key){
+    switch(this.criterion.key){
       case 'release_date':
-        this.movie.criterion = parseInt(this.movie.release_date.substring(0, 4));
-        console.log(this.movie.criterion);
+        this.descendingOrderReleaseDate();
         break;
       case 'vote_average':
-        this.movie.criterion = this.movie.vote_average;
-        console.log(this.movie.criterion);
+        this.descendingOrderVoteAverage();
         break;
       case 'runtime':
-        this.movie.criterion = this.movie.runtime;
-        console.log(this.movie.criterion);
+        this.descendingOrderRuntime();
         break;
       case 'budget':
-        this.movie.criterion = this.movie.budget;
-        console.log(this.movie.criterion);
+        this.descendingOrderBudget();
         break;
       case 'revenue':
-      this.movie.criterion = this.movie.revenue;
-      console.log(this.movie.criterion);
-      break;
-    }*/
+        this.descendingOrderRevenue();
+        break;
+    }
 
     for(let i = 0; i < 10; i++){
       this.orderedMovies.push(this.movieService.movies[i]);
     }
-    this.descendingOrder();
+
     for(let i = 0; i < 10; i++){
       console.log(this.orderedMovies[i]);
     }
-}
+  }
 
-  descendingOrder() {    
-    /*this.criterion = this.movieService.getRandomCriterion();
-    console.log(this.criterion);*/
-
-    /*switch(this.criterion.key){
-      case 'release_date':
-        this.criterion.key = this.movie.release_date;
-        console.log(this.criterion.key);
-        break;
-      case 'vote_average':
-        this.criterion.key = this.movie.vote_average.toLocaleString();
-        console.log(this.criterion.key);
-        break;
-      case 'runtime':
-        this.criterion.key = this.movie.runtime.toString();
-        console.log(this.criterion.key);
-        break;
-      case 'budget':
-        this.criterion.key = this.movie.budget.toString();
-        console.log(this.criterion.key);
-        break;
-      case 'revenue':
-        this.criterion.key = this.movie.revenue;
-        console.log(this.criterion.key);
-        break;
-    }*/
-
-    this.orderedMovies?.sort((a, b) => {
+  descendingOrderReleaseDate() {    
+    this.movies?.sort((a, b) => {
       if (a.release_date != undefined && b.release_date != undefined) {
         if (b.release_date > a.release_date) {
           return 1;
@@ -104,19 +73,85 @@ export class GameComponent implements OnInit {
     });
   }
 
+  descendingOrderVoteAverage() {
+    this.movies?.sort((a, b) => {
+      if (a.vote_average != undefined && b.vote_average != undefined) {
+        if (b.vote_average > a.vote_average) {
+          return 1;
+        }
+        if (b.vote_average < a.vote_average) {
+          return -1;
+        }
+        return 0;
+      }
+      else return 0;
+    });
+  }
+
+  descendingOrderRuntime() {    
+    this.movies?.sort((a, b) => {
+      if (a.runtime != undefined && b.runtime != undefined) {
+        if (b.runtime > a.runtime) {
+          return 1;
+        }
+        if (b.runtime < a.runtime) {
+          return -1;
+        }
+        return 0;
+      }
+      else return 0;
+    });
+  }
+
+  descendingOrderBudget() {    
+    /*this.criterion = this.movieService.getRandomCriterion();
+    console.log(this.criterion);*/
+
+    this.movies?.sort((a, b) => {
+      if (a.budget != undefined && b.budget != undefined) {
+        if (b.budget > a.budget) {
+          return 1;
+        }
+        if (b.budget < a.budget) {
+          return -1;
+        }
+        return 0;
+      }
+      else return 0;
+    });
+  }
+
+  descendingOrderRevenue() {    
+    /*this.criterion = this.movieService.getRandomCriterion();
+    console.log(this.criterion);*/
+
+    this.movies?.sort((a, b) => {
+      if (a.revenue != undefined && b.revenue != undefined) {
+        if (b.revenue > a.revenue) {
+          return 1;
+        }
+        if (b.revenue < a.revenue) {
+          return -1;
+        }
+        return 0;
+      }
+      else return 0;
+    });
+  }
+
   finish(form: NgForm){
     console.log(this.orderedMovies);
     console.log(this.orderedMoviesByUser);
     let points: number = 0;
     for(let i = 0; i < 10; i++){
-      if(this.orderedMovies[i] === this.orderedMoviesByUser[i]){
+      if(this.orderedMovies[i] == this.orderedMoviesByUser[i]){
         points = points + 10;
         }
       }
       this.rankingService.createRanking({userId: this.currentUser, gamePoints: points}).subscribe({
         next: (res) => {
         console.log(res);
-    }
-  });
-}
+      }
+    });
+  }
 }

@@ -11,9 +11,10 @@
             [movie]="movie"
             class="col-12 col-sm-6 col-md-3 py-2"
         ></tnv-game-item>
+        <br>
         <tnv-game-select>
         </tnv-game-select>
-        <form #end="ngForm" (ngSubmit)="finish(end)">
-            <button type="button" *ngIf="finish" class="form-label btn btn-primary rounded submit px-3 mt-2" routerLink="/endgame" routerLinkActive="active" (click)="finish(end)">Aggiungi ai preferiti</button>
+        <form #end="ngForm" (ngSubmit)="finish(end)" class="finish-button d-grid gap-2 col-4 mx-auto">
+            <button type="button" *ngIf="finish" class="form-label btn btn-primary rounded submit px-3 mt-2" routerLink="/endgame" routerLinkActive="active" (click)="finish(end)">Scopri il tuo punteggio</button>
           </form>
         </div>
