@@ -61,23 +61,7 @@ export class GameComponent implements OnInit {
       console.log(this.orderedMovies[i]);
     }
     
-    switch(this.criterion.key){
-      case 'release_date':
-        this.descendingOrderReleaseDate();
-        break;
-      case 'vote_average':
-        this.descendingOrderVoteAverage();
-        break;
-      case 'runtime':
-        this.descendingOrderRuntime();
-        break;
-      case 'budget':
-        this.descendingOrderBudget();
-        break;
-      case 'revenue':
-        this.descendingOrderRevenue();
-        break;
-    }
+    this.descendingOrder(this.criterion.key)
     
     for(let i = 0; i < 10; i++){
       console.log(this.orderedMovies[i]);
@@ -113,73 +97,13 @@ export class GameComponent implements OnInit {
     });
   }
 
-  descendingOrderReleaseDate() {    
-    this.orderedMovies?.sort((a, b) => {
-      if (a.release_date != undefined && b.release_date != undefined) {
-        if (b.release_date > a.release_date) {
+  descendingOrder(criterion: string) {    
+    this.orderedMovies?.sort((a: any, b: any) => {
+      if (a[criterion] != undefined && b[criterion] != undefined) {
+        if (b[criterion] > a[criterion]) {
           return 1;
         }
-        if (b.release_date < a.release_date) {
-          return -1;
-        }
-        return 0;
-      }
-      else return 0;
-    });
-  }
-
-  descendingOrderVoteAverage() {
-    this.orderedMovies?.sort((a, b) => {
-      if (a.vote_average != undefined && b.vote_average != undefined) {
-        if (b.vote_average > a.vote_average) {
-          return 1;
-        }
-        if (b.vote_average < a.vote_average) {
-          return -1;
-        }
-        return 0;
-      }
-      else return 0;
-    });
-  }
-
-  descendingOrderRuntime() {    
-    this.orderedMovies?.sort((a, b) => {
-      if (a.runtime != undefined && b.runtime != undefined) {
-        if (b.runtime > a.runtime) {
-          return 1;
-        }
-        if (b.runtime < a.runtime) {
-          return -1;
-        }
-        return 0;
-      }
-      else return 0;
-    });
-  }
-
-  descendingOrderBudget() {    
-    this.orderedMovies?.sort((a, b) => {
-      if (a.budget != undefined && b.budget != undefined) {
-        if (b.budget > a.budget) {
-          return 1;
-        }
-        if (b.budget < a.budget) {
-          return -1;
-        }
-        return 0;
-      }
-      else return 0;
-    });
-  }
-
-  descendingOrderRevenue() {
-    this.orderedMovies?.sort((a, b) => {
-      if (a.revenue != undefined && b.revenue != undefined) {
-        if (b.revenue > a.revenue) {
-          return 1;
-        }
-        if (b.revenue < a.revenue) {
+        if (b[criterion] < a[criterion]) {
           return -1;
         }
         return 0;
