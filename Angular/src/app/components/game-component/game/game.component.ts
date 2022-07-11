@@ -50,11 +50,12 @@ export class GameComponent implements OnInit {
         break;
     }
 
-    /*for(let i = 0; i < 10; i++){
-      this.orderedMovies.push(this.movieService.movies[i]);
-    }*/
     for(let i = 0; i < 10; i++){
-      console.log(this.movies[i]);
+      this.orderedMovies.push(this.movieService.movies[i]);
+    }
+
+    for(let i = 0; i < 10; i++){
+      console.log(this.orderedMovies[i]);
     }
   }
 
@@ -144,14 +145,14 @@ export class GameComponent implements OnInit {
     console.log(this.orderedMoviesByUser);
     let points: number = 0;
     for(let i = 0; i < 10; i++){
-      if(this.orderedMovies[i] === this.orderedMoviesByUser[i]){
+      if(this.orderedMovies[i] == this.orderedMoviesByUser[i]){
         points = points + 10;
         }
       }
       this.rankingService.createRanking({userId: this.currentUser, gamePoints: points}).subscribe({
         next: (res) => {
         console.log(res);
-    }
-  });
-}
+      }
+    });
+  }
 }
