@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/@core/services/auth.service';
 import { MovieService } from 'src/app/@core/services/movie.service';
@@ -17,9 +17,22 @@ export class GameComponent implements OnInit {
   movies = this.movieService.movies;
   movie: Partial<Movie> = {};
   orderedMovies: Partial<Movie>[] = [];
-  @Input() orderedMoviesByUser: Partial<Movie> [] = [];
   criterion : Criterion = {label: "", key: ''};
   currentUser = this.authService.getCurrentUser().id;
+  orderedMoviesByUser : Partial<Movie>[] = [];
+  primaPosizioneFilm: Partial<Movie> = {};
+  secondaPosizioneFilm: Partial<Movie> = {};
+  terzaPosizioneFilm: Partial<Movie> = {};
+  quartaPosizioneFilm: Partial<Movie> = {};
+  quintaPosizioneFilm: Partial<Movie> = {};
+  sestaPosizioneFilm: Partial<Movie> = {};
+  settimaPosizioneFilm: Partial<Movie> = {};
+  ottavaPosizioneFilm: Partial<Movie> = {};
+  nonaPosizioneFilm: Partial<Movie> = {};
+  decimaPosizioneFilm: Partial<Movie> = {};
+  game = false;
+  results = false;
+
   //convertedCriterion: number = 0;
 
   ngOnInit(): void {
@@ -29,6 +42,15 @@ export class GameComponent implements OnInit {
     this.criterion = this.movieService.getRandomCriterion();
     console.log(this.criterion);
     }
+
+  showGame(){
+    this.game = !this.game;
+  }
+
+  showResults(){
+    this.results = !this.results;
+  }
+
 
   startGame(){
     switch(this.criterion.key){
@@ -56,6 +78,37 @@ export class GameComponent implements OnInit {
     for(let i = 0; i < 10; i++){
       console.log(this.orderedMovies[i]);
     }
+  }
+
+  onSubmitMovie(form: NgForm){
+    this.orderedMoviesByUser.push(this.primaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.secondaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.terzaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.quartaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.quintaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.sestaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.settimaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.ottavaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.nonaPosizioneFilm);
+    this.orderedMoviesByUser.push(this.decimaPosizioneFilm);
+
+    console.log(this.orderedMoviesByUser);
+  }
+
+  finish(form: NgForm){
+    console.log(this.orderedMovies);
+    console.log(this.orderedMoviesByUser);
+    let points: number = 0;
+    for(let i = 0; i < 10; i++){
+      if(this.orderedMovies[i] == this.orderedMoviesByUser[i]){
+        points = points + 10;
+        }
+      }
+      this.rankingService.createRanking({userId: this.currentUser, gamePoints: points}).subscribe({
+        next: (res) => {
+        console.log(res);
+      }
+    });
   }
 
   descendingOrderReleaseDate() {    
@@ -104,9 +157,6 @@ export class GameComponent implements OnInit {
   }
 
   descendingOrderBudget() {    
-    /*this.criterion = this.movieService.getRandomCriterion();
-    console.log(this.criterion);*/
-
     this.movies?.sort((a, b) => {
       if (a.budget != undefined && b.budget != undefined) {
         if (b.budget > a.budget) {
@@ -121,10 +171,7 @@ export class GameComponent implements OnInit {
     });
   }
 
-  descendingOrderRevenue() {    
-    /*this.criterion = this.movieService.getRandomCriterion();
-    console.log(this.criterion);*/
-
+  descendingOrderRevenue() {
     this.movies?.sort((a, b) => {
       if (a.revenue != undefined && b.revenue != undefined) {
         if (b.revenue > a.revenue) {
@@ -136,22 +183,6 @@ export class GameComponent implements OnInit {
         return 0;
       }
       else return 0;
-    });
-  }
-
-  finish(form: NgForm){
-    console.log(this.orderedMovies);
-    console.log(this.orderedMoviesByUser);
-    let points: number = 0;
-    for(let i = 0; i < 10; i++){
-      if(this.orderedMovies[i] == this.orderedMoviesByUser[i]){
-        points = points + 10;
-        }
-      }
-      this.rankingService.createRanking({userId: this.currentUser, gamePoints: points}).subscribe({
-        next: (res) => {
-        console.log(res);
-      }
     });
   }
 }

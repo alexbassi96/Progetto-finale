@@ -1,11 +1,11 @@
 import { Sequelize } from "sequelize";
 
 const db = new Sequelize({
-  database: "Progetto_finale",
+  database: "progetto_finale",
   username: "root",
-  password: "root",
+  password: "",
   host: "localhost",
-  port: 8889,
+  port: 3306,
   dialect: "mysql",
 });
 
