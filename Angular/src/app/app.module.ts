@@ -16,15 +16,14 @@ import { RankingsComponent } from './components/rankings/rankings.component';
 import { GameComponent } from './components/game-component/game/game.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GameItemComponent } from './components/game-component/game-item/game-item.component';
-import { ReviewComponent } from './components/review/review.component';
 import { WelcomeHeaderComponent } from './components/welcome-header/welcome-header.component';
 import { FavoriteMovieComponent } from './components/favorite-movie/favorite-movie.component';
 import { FavoriteMovieItemComponent } from './components/favorite-movie-item/favorite-movie-item.component';
 import { EndGameItemComponent } from './components/game-component/end-game-item/end-game-item.component';
-import { RatingComponent } from './components/rating/rating.component';
 import { EndGameComponent } from './components/game-component/end-game/end-game.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GameSelectComponent } from './components/game-component/game-select/game-select.component';
+import { AddRatingReviewComponent } from './components/add-rating-review/add-rating-review.component';
 
 @NgModule({
   declarations: [
@@ -39,15 +38,14 @@ import { GameSelectComponent } from './components/game-component/game-select/gam
     RankingsComponent,
     GameComponent,
     GameItemComponent,
-    ReviewComponent,
     WelcomeHeaderComponent,
     FavoriteMovieComponent,
     FavoriteMovieItemComponent,
     EndGameItemComponent,
-    RatingComponent,
     EndGameComponent,
     FooterComponent,
     GameSelectComponent,
+    AddRatingReviewComponent,
   ],
   imports: [
     BrowserModule,

@@ -49,4 +49,8 @@ export class AuthService {
     return user;
   }
 
+  getUserById(id: number | undefined) {
+    return this.httpClient.get<User>(`${this.springBaseUrl}${id}`);
+  }
+
 }

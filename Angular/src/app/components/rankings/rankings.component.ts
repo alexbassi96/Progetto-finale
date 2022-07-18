@@ -11,7 +11,7 @@ import { User } from 'src/app/models/user';
 })
 export class RankingsComponent implements OnInit {
 
-  users: Partial<User>[] = [];
+  users: Partial<User> [] = [];
   rankings: Partial<Ranking>[] = [];
   bestRanking: Partial<Ranking>[] = [];
   currentUser = this.authService.getCurrentUser();
@@ -45,9 +45,18 @@ export class RankingsComponent implements OnInit {
 
     for (let i = 0; i < 10; ++i) {
       this.bestRanking.push(this.rankings[i]);
+      this.authService.getUserById(this.bestRanking[i].userId);
     }
     console.log(this.bestRanking);
+    
+    for (let i = 0; i < 10; ++i) {
+      this.authService.getUserById(this.bestRanking[i].userId).subscribe({
+        next: (res) => {
+          this.users [i] = res;
+        }
+      });
+    }
+    console.log(this.users);
   }
-
 
 }
