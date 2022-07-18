@@ -24,7 +24,8 @@
               </div>
             </ng-template>
             <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{
-              successMessage }}</ngb-alert>
+              successMessage }}
+            </ngb-alert>
             <form #f="ngForm" (ngSubmit)="onSubmit(f)">
               <button type="submit" *ngIf="onSubmit" class="form-label btn btn-primary rounded submit px-3 mt-2" (click)="open(content)" (click)="changeSuccessMessage()">Aggiungi ai preferiti</button>
             </form>

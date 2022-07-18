@@ -17,7 +17,7 @@ export class AuthService {
           'Content-Type': 'application/json',
           'Authorization': 'Basic ' + btoa(loginData.username+":"+loginData.password)
         })
-      };
+    };
     
     return this.httpClient.get<Partial<LoginDTO>>(`${this.springBaseUrl}username/${loginData.username}/password/${loginData.password}`, httpOptions);
     //return of('login ok');
