@@ -5,115 +5,95 @@
                 (click)="showGame()">Inizia il gioco</button>
         </div>
         <br>
-        <div class="row" *ngIf="game">
+        <div class="row align-items-start" *ngIf="game">
             <h1 class="title">Ordina i film in base {{this.criterion.label}}</h1>
-            <br>
-            <tnv-game-item *ngFor="let movie of movies" class="col-12 col-sm-6 col-md-3 py-2" [movie]="movie">
-            </tnv-game-item>
-            <br>
-                <div class="select">
+            <div class="row col-9">
+                <br>
+                <tnv-game-item *ngFor="let movie of movies" class="col-12 col-sm-6 col-md-3 py-2" [movie]="movie">
+                </tnv-game-item>
+            </div>
+                <br>
+                <div class="select col-3 col-sm-1 col-md-3 py-2">
                     <form #addOrderedFilm="ngForm" (ngSubmit)="onSubmitMovie(addOrderedFilm)">
-                        <ul class="list-group">
-                            <li class="list-group-item">
                                 <p> Prima posizione </p>
                                 <select [(ngModel)]="primaPosizioneFilm" name="primaPosizioneFilm"
-                                    id="primaPosizioneFilm" class="form-select-lg mb-3"
+                                    id="primaPosizioneFilm" class="form-select-sm mb-3"
                                     aria-label=".form-select-lg example">
                                     <option selected>Scegli l'ordine</option>
                                     <option *ngFor="let movie of movies" [ngValue]="movie">{{ movie.title }}
                                     </option>
                                 </select>
-                            </li>
-                            <li class="list-group-item">
                                 <p> Seconda posizione </p>
                                 <select [(ngModel)]="secondaPosizioneFilm" name="secondaPosizioneFilm"
-                                    id="secondaPosizioneFilm" class="form-select-lg mb-3"
+                                    id="secondaPosizioneFilm" class="form-select-sm mb-3"
                                     aria-label=".form-select-lg example">
                                     <option selected>Scegli l'ordine</option>
                                     <option *ngFor="let movie of movies" [ngValue]="movie">{{ movie.title }}
                                     </option>
                                 </select>
-                            </li>
-                            <li class="list-group-item">
                                 <p> Terza posizione </p>
                                 <select [(ngModel)]="terzaPosizioneFilm" name="terzaPosizioneFilm"
-                                    id="terzaPosizioneFilm" class="form-select-lg mb-3"
+                                    id="terzaPosizioneFilm" class="form-select-sm mb-3"
                                     aria-label=".form-select-lg example">
                                     <option selected>Scegli l'ordine</option>
                                     <option *ngFor="let movie of movies" [ngValue]="movie">{{ movie.title }}
                                     </option>
                                 </select>
-                            </li>
-                            <li class="list-group-item">
                                 <p> Quarta posizione </p>
                                 <select [(ngModel)]="quartaPosizioneFilm" name="quartaPosizioneFilm"
-                                    id="quartaPosizioneFilm" class="form-select-lg mb-3"
+                                    id="quartaPosizioneFilm" class="form-select-sm mb-3"
                                     aria-label=".form-select-lg example">
                                     <option selected>Scegli l'ordine</option>
                                     <option *ngFor="let movie of movies" [ngValue]="movie">{{ movie.title }}
                                     </option>
                                 </select>
-                            </li>
-                            <li class="list-group-item">
                                 <p> Quinta posizione </p>
                                 <select [(ngModel)]="quintaPosizioneFilm" name="quintaPosizioneFilm"
-                                    id="quintaPosizioneFilm" class="form-select-lg mb-3"
+                                    id="quintaPosizioneFilm" class="form-select-sm mb-3"
                                     aria-label=".form-select-lg example">
                                     <option selected>Scegli l'ordine</option>
                                     <option *ngFor="let movie of movies" [ngValue]="movie">{{ movie.title }}
                                     </option>
                                 </select>
-                            </li>
-                            <li class="list-group-item">
                                 <p> Sesta posizione </p>
                                 <select [(ngModel)]="sestaPosizioneFilm" name="sestaPosizioneFilm"
-                                    id="sestaPosizioneFilm" class="form-select-lg mb-3"
+                                    id="sestaPosizioneFilm" class="form-select-sm mb-3"
                                     aria-label=".form-select-lg example">
                                     <option selected>Scegli l'ordine</option>
                                     <option *ngFor="let movie of movies" [ngValue]="movie">{{ movie.title }}
                                     </option>
                                 </select>
-                            </li>
-                            <li class="list-group-item">
                                 <p> Settima posizione </p>
                                 <select [(ngModel)]="settimaPosizioneFilm" name="settimaPosizioneFilm"
-                                    id="settimaPosizioneFilm" class="form-select-lg mb-3"
+                                    id="settimaPosizioneFilm" class="form-select-sm mb-3"
                                     aria-label=".form-select-lg example">
                                     <option selected>Scegli l'ordine</option>
                                     <option *ngFor="let movie of movies" [ngValue]="movie">{{ movie.title }}
                                     </option>
                                 </select>
-                            </li>
-                            <li class="list-group-item">
                                 <p> Ottava posizione </p>
                                 <select [(ngModel)]="ottavaPosizioneFilm" name="ottavaPosizioneFilm"
-                                    id="ottavaPosizioneFilm" class="form-select-lg mb-3"
+                                    id="ottavaPosizioneFilm" class="form-select-sm mb-3"
                                     aria-label=".form-select-lg example">
                                     <option selected>Scegli l'ordine</option>
                                     <option *ngFor="let movie of movies" [ngValue]="movie">{{ movie.title }}
                                     </option>
                                 </select>
-                            </li>
-                            <li class="list-group-item">
-                                <p> Nova posizione </p>
+                                <p> Nona posizione </p>
                                 <select [(ngModel)]="nonaPosizioneFilm" name="nonaPosizioneFilm" id="nonaPosizioneFilm"
-                                    class="form-select-lg mb-3" aria-label=".form-select-lg example">
+                                    class="form-select-sm mb-3" aria-label=".form-select-lg example">
                                     <option selected>Scegli l'ordine</option>
                                     <option *ngFor="let movie of movies" [ngValue]="movie">{{ movie.title }}
                                     </option>
                                 </select>
-                            </li>
-                            <li class="list-group-item">
                                 <p> Decima posizione </p>
                                 <select [(ngModel)]="decimaPosizioneFilm" name="decimaPosizioneFilm"
-                                    id="decimaPosizioneFilm" class="form-select-lg mb-3"
+                                    id="decimaPosizioneFilm" class="form-select-sm mb-3"
                                     aria-label=".form-select-lg example">
                                     <option selected>Scegli l'ordine</option>
                                     <option *ngFor="let movie of movies" [ngValue]="movie">{{ movie.title }}
                                     </option>
                                 </select>
-                            </li>
-                        </ul>
                         <br>
                         <button type="button" *ngIf="onSubmitMovie"
                             class="form-label btn btn-primary rounded submit px-3 mt-2"
@@ -121,7 +101,6 @@
                             risposte</button>
                     </form>
                 </div>
-            </div>
             <div *ngIf="results">
                 <form #end="ngForm" (ngSubmit)="finish(end)" class="finish-button d-grid gap-2 col-4 mx-auto">
                     <button type="button" *ngIf="finish" class="form-label btn btn-primary rounded submit px-3 mt-2"
@@ -129,3 +108,6 @@
                         punteggio</button>
                 </form>
             </div>
+        </div>
+    </div>
+</div>
