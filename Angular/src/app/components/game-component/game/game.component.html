@@ -9,6 +9,7 @@
             <h1 class="title">Ordina i film in base {{this.criterion.label}}</h1>
             <div class="row col-9">
                 <br>
+                <tnv-game-select></tnv-game-select>
                 <tnv-game-item *ngFor="let movie of movies" class="col-12 col-sm-6 col-md-3 py-2" [movie]="movie">
                 </tnv-game-item>
             </div>

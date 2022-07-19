@@ -24,6 +24,8 @@ import { EndGameComponent } from './components/game-component/end-game/end-game.
 import { FooterComponent } from './components/footer/footer.component';
 import { GameSelectComponent } from './components/game-component/game-select/game-select.component';
 import { AddRatingReviewComponent } from './components/add-rating-review/add-rating-review.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { AddRatingReviewComponent } from './components/add-rating-review/add-rat
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]
