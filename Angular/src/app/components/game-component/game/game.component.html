@@ -12,25 +12,19 @@
                 <tnv-game-item *ngFor="let movie of movies" class="col-12 col-sm-6 col-md-3 py-2" [movie]="movie">
                 </tnv-game-item>
             </div>
-                <br>
-                <div class="select col-3 col-sm-1 col-md-3 py-2">
-                        <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
-                            <div class="example-box" *ngFor="let movie of movies" cdkDrag>
-                              {{movie.title}}
-                              <img *cdkDragPreview [src]="imageBaseUrl + movie.poster_path" [alt]="movie.title">
-                            </div>
-                        </div>
-                        <br>
-                        <button type="button"
-                            class="form-label btn btn-primary rounded submit px-3 mt-2"
-                            (click)="showResults()">Salva le tue risposte
-                        </button>
+            <br>
+            <div class="select col-3 col-sm-3 col-md-3 py-2">
+                <div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+                    <div class="example-box" *ngFor="let movie of movies" cdkDrag>
+                        {{movie.title}}
+                        <img *cdkDragPreview [src]="imageBaseUrl + movie.poster_path" [alt]="movie.title">
+                    </div>
                 </div>
-            <div *ngIf="results">
-                <form #end="ngForm" (ngSubmit)="finish(end)" class="finish-button d-grid gap-2 col-4 mx-auto">
+                <br>
+                <form #end="ngForm" (ngSubmit)="finish(end)">
                     <button type="button" *ngIf="finish" class="form-label btn btn-primary rounded submit px-3 mt-2"
-                        routerLink="/endgame" routerLinkActive="active" (click)="finish(end)">Scopri il tuo
-                        punteggio</button>
+                        routerLink="/endgame" routerLinkActive="active" (click)="finish(end)">Scopri il tuo punteggio
+                    </button>
                 </form>
             </div>
         </div>
