@@ -22,7 +22,6 @@ import { FavoriteMovieItemComponent } from './components/favorite-movie-item/fav
 import { EndGameItemComponent } from './components/game-component/end-game-item/end-game-item.component';
 import { EndGameComponent } from './components/game-component/end-game/end-game.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { GameSelectComponent } from './components/game-component/game-select/game-select.component';
 import { AddRatingReviewComponent } from './components/add-rating-review/add-rating-review.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
@@ -46,7 +45,6 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     EndGameItemComponent,
     EndGameComponent,
     FooterComponent,
-    GameSelectComponent,
     AddRatingReviewComponent,
   ],
   imports: [

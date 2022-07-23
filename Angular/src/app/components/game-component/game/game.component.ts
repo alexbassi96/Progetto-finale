@@ -5,6 +5,8 @@ import { MovieService } from 'src/app/@core/services/movie.service';
 import { RankingService } from 'src/app/@core/services/ranking.service';
 import { Criterion, Movie } from 'src/app/models/movie';
 import { Ranking } from 'src/app/models/ranking';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+
 
 @Component({
   selector: 'tnv-game',
@@ -18,19 +20,9 @@ export class GameComponent implements OnInit {
   movies = this.movieService.movies;
   movie: Partial<Movie> = {};
   orderedMovies: Partial<Movie>[] = [];
-  orderedMoviesByUser : Partial<Movie>[] = [];
   criterion : Criterion = {label: "", key: ''};
   currentUserId = this.authService.getCurrentUser().id;
-  primaPosizioneFilm: Partial<Movie> = {};
-  secondaPosizioneFilm: Partial<Movie> = {};
-  terzaPosizioneFilm: Partial<Movie> = {};
-  quartaPosizioneFilm: Partial<Movie> = {};
-  quintaPosizioneFilm: Partial<Movie> = {};
-  sestaPosizioneFilm: Partial<Movie> = {};
-  settimaPosizioneFilm: Partial<Movie> = {};
-  ottavaPosizioneFilm: Partial<Movie> = {};
-  nonaPosizioneFilm: Partial<Movie> = {};
-  decimaPosizioneFilm: Partial<Movie> = {};
+  imageBaseUrl: string = "https://image.tmdb.org/t/p/w440_and_h660_face"
   game = false;
   results = false;
 
@@ -43,7 +35,12 @@ export class GameComponent implements OnInit {
     console.log(this.criterion.key);
     }
 
-  showGame(){
+    drop(event: CdkDragDrop<{title: string; poster: string}[]>) {
+      moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
+      console.log(this.movies);
+    }
+
+    showGame(){
     this.game = !this.game;
   }
 
@@ -68,25 +65,12 @@ export class GameComponent implements OnInit {
     }
   }
 
-  onSubmitMovie(form: NgForm){
-    this.orderedMoviesByUser.push(this.primaPosizioneFilm);
-    this.orderedMoviesByUser.push(this.secondaPosizioneFilm);
-    this.orderedMoviesByUser.push(this.terzaPosizioneFilm);
-    this.orderedMoviesByUser.push(this.quartaPosizioneFilm);
-    this.orderedMoviesByUser.push(this.quintaPosizioneFilm);
-    this.orderedMoviesByUser.push(this.sestaPosizioneFilm);
-    this.orderedMoviesByUser.push(this.settimaPosizioneFilm);
-    this.orderedMoviesByUser.push(this.ottavaPosizioneFilm);
-    this.orderedMoviesByUser.push(this.nonaPosizioneFilm);
-    this.orderedMoviesByUser.push(this.decimaPosizioneFilm);
-  }
-
   finish(form: NgForm){
     console.log(this.orderedMovies);
-    console.log(this.orderedMoviesByUser);
+    console.log(this.movies);
     let points: number = 0;
     for(let i = 0; i < 10; i++){
-      if(this.orderedMovies[i] == this.orderedMoviesByUser[i]){
+      if(this.orderedMovies[i] == this.movies[i]){
         points = points + 10;
         }
     }
