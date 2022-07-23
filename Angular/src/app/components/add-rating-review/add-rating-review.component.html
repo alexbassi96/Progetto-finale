@@ -4,7 +4,12 @@
         <textarea [ngModel] name="recensione" type="text" class="form-control" placeholder="Inserisci recensione"
             id="recensione" [(ngModel)]="currentRecensione" #recensione="ngModel" rows="3"></textarea>
         <label for="rating" class="form-label">Voto</label><br>
-        <ngb-rating [(rate)]="currentRate" id="rating" [max]="5"></ngb-rating>
+        <ng-template #t let-fill="fill">
+            <span class="star" [class.full]="fill === 100">
+              <span class="half" [style.width.%]="fill">&star;</span>&star;
+            </span>
+          </ng-template>
+            <ngb-rating [(rate)]="currentRate" id="rating" [starTemplate]="t" [max]="5"></ngb-rating>
         <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{
             successMessage }}</ngb-alert>
         <br>
