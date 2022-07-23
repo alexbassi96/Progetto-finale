@@ -45,8 +45,6 @@ export class AddRatingReviewComponent implements OnInit {
   public changeSuccessMessage() { this._success.next('Recensione e voto inseriti correttamente'); }
 
   onSubmit(form: NgForm) {
-    form.control.markAllAsTouched();
-      if (form.valid) {
       form.value['recensione'] = this.currentRecensione;
       this.reviewService.addReview({ userId: this.currentUser.id, movieId: this.movie.id, recensione: this.currentRecensione }).subscribe({
         next: (res) => {
@@ -62,4 +60,3 @@ export class AddRatingReviewComponent implements OnInit {
       });
     }
   }
-}

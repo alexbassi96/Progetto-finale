@@ -2,11 +2,7 @@
     <form #add="ngForm" (ngSubmit)="onSubmit(add)">
         <label for="recensione" class="form-label">Inserisci recensione</label>
         <textarea [ngModel] name="recensione" type="text" class="form-control" placeholder="Inserisci recensione"
-            id="recensione" [(ngModel)]="currentRecensione" required #recensione="ngModel" rows="3"></textarea>
-        <div [style.visibility]="recensione.invalid && (recensione.dirty || recensione.touched) ? 'visible' : 'hidden'"
-            class="mt-1 small text-danger">
-            Campo obbligatorio
-        </div>
+            id="recensione" [(ngModel)]="currentRecensione" #recensione="ngModel" rows="3"></textarea>
         <label for="rating" class="form-label">Voto</label><br>
         <ngb-rating [(rate)]="currentRate" id="rating" [max]="5"></ngb-rating>
         <ngb-alert #selfClosingAlert *ngIf="successMessage" type="success" (closed)="successMessage = ''">{{

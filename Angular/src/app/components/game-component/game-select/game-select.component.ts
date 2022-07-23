@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { MovieService } from 'src/app/@core/services/movie.service';
 import { Criterion, Movie } from 'src/app/models/movie';
 
@@ -14,6 +14,7 @@ export class GameSelectComponent implements OnInit {
   movies = this.movieService.movies;
   movie: Partial<Movie> = {};
   constructor(private movieService: MovieService) { }
+  imageBaseUrl: string = "https://image.tmdb.org/t/p/w440_and_h660_face"
   
   ngOnInit(): void { 
     for(let index = 0; index < 10; index++){
