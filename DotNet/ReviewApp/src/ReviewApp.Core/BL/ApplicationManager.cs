@@ -27,6 +27,7 @@ namespace ReviewApp.Core.BL
             return _storageservice.AddReview(userId, movieId, recensione);
         }
         public Review UpdateReview(int id, string recensione) => _storageservice.UpdateReview(id, recensione);
+        
         public bool DeleteReview(int id)
         {
             _storageservice.DeleteReview(id);

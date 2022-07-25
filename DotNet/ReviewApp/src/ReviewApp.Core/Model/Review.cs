@@ -12,12 +12,6 @@ namespace ReviewApp.Core.Model
         public const int MAX_CHAR_REVIEW = 160;
 
         public int Id { get; set; }
-        /*{
-            get
-            {
-                return _id;
-            }
-        }*/
         public int UserId { get; set; }
         public int MovieId { get; set; }
 

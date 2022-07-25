@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @CrossOrigin (origins = "http://localhost:4200")
 @RequestMapping("/users")
@@ -22,30 +20,38 @@ public class UserController {
 
     //CRUD operations (Create Read Update Delete)
    
+    /**
+     * Utilizzata per la registrazione dei nuovi utenti
+     * @param user
+     * @return
+     */
     @PostMapping("/")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         User newUser = userService.addUser(user.getName(), user.getSurname(), user.getUsername(), user.getPassword());
         return new ResponseEntity<>(newUser, HttpStatus.OK);
     }
 
+    /** Utilizzata per recuperare lo user da mostrare nel ranking
+     * 
+     * @param identificativo
+     * @return
+     */
     @GetMapping("/{id}")
     public User getUserById(@PathVariable("id") int identificativo) {
         return userService.getUser(identificativo);
-    }  
-/* */
-    //@GetMapping("/username/{username}/password/{password}")
-
-    @GetMapping("/username/{username}")
-    public Iterable<User> getUserByUsernameContains(@PathVariable("username") String username) {
-        return userService.getUserByUsernameContains(username);
     }
 
+    /** Utilizzata per il controllo sulla login
+     * 
+     * @param username
+     * @param password
+     * @return
+     */
     @GetMapping("/username/{username}/password/{password}")
     public User getUserByUsernameAndPassword(@PathVariable("username") String username, @PathVariable ("password") String password){
         return userService.getUserByUsernameAndPassword(username, password);
     }
 
-    //allUsers - GET
     @GetMapping("/")
     public Iterable<User> allUsers() {
         return userService.allUsers();
