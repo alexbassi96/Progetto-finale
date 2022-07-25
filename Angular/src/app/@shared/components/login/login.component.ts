@@ -12,7 +12,7 @@ import { AuthService } from "src/app/@core/services/auth.service";
 })
 export class LoginComponent implements OnInit {
 
-  errorLoginMessage: string = "";
+  errorLoginMessage: string = "Username o password errati";
   showError: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
           console.log(res);
           this.authService.saveUserInLocalStorage(res);
           this.router.navigateByUrl('/welcome');
-        }
+        },
+        error: () => this.showError = true
       })
     }
   }
