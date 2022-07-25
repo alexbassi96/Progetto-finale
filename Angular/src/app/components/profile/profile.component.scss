@@ -8,7 +8,8 @@
     color: blue;
 }
 h3{
-    text-align: center
+    text-align: center;
+    font-family: 'Staatliches', cursive;
 }
 .favorite-list-body h2{
     text-align: center;
@@ -20,6 +21,14 @@ h3{
     margin-left: 2rem;
 }
 
+.card{
+    align-items: center;
+    width: 100px;
+}
+
+/* .card-header{
+    width: 100px;
+} */
 .separator {
     width: 100px;
     height: 4px;

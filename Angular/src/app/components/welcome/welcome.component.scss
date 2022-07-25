@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
 $primary: #032CA6;
 $secondary: #ffffff;
 $third: #F28705;
@@ -8,14 +10,10 @@ card-text-center{
     text-align: left;
 }
 
-/* .prova::before{
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: #032CA6;
-    opacity: 0.1;
-} */
+h5{
+    font-family: 'Staatliches', cursive;
+}
+
+.card-footer{
+    font-family: 'Staatliches', cursive;
+}
