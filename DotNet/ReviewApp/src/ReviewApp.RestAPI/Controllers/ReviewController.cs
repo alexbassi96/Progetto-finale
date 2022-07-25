@@ -27,6 +27,7 @@ public class ReviewController : ControllerBase
         return Ok(_applicationManager.GetAllReviews());
     }
 
+    // Creazione review
     [EnableCors("Policy1")]
     [HttpPost]
     public ActionResult<ReviewContract> AddReview([FromBody] UpdateReviewContract info)

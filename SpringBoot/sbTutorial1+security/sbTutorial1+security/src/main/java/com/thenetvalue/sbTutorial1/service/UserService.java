@@ -1,6 +1,5 @@
 package com.thenetvalue.sbTutorial1.service;
 
-import com.thenetvalue.sbTutorial1.dao.UserDAO;
 import com.thenetvalue.sbTutorial1.dao.UserRepositoryDAO;
 import com.thenetvalue.sbTutorial1.model.Ruolo;
 import com.thenetvalue.sbTutorial1.model.User;
@@ -9,9 +8,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.thenetvalue.sbTutorial1.dao.InMemoryUserDAO;
-
-import java.util.List;
 
 @Service
 public class UserService {
@@ -38,10 +34,6 @@ public class UserService {
 
     public User getUser(int id) {
         return userDAO.findById(id).get();
-    }
-
-    public Iterable<User> getUserByUsernameContains(String username) {
-        return userDAO.findByUsernameLike(username);
     }
 
     public User getUserByUsernameAndPassword(String username, String password) {
@@ -80,9 +72,5 @@ public class UserService {
             userDAO.delete(userRecuperato);
             return "Utente cancellato correttamente";
         }
-    }
-
-    public User register (User newUser){
-        return userDAO.save(newUser);
     }
 }
